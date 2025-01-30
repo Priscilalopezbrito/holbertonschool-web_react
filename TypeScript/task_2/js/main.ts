@@ -1,3 +1,4 @@
+// 5. Advanced types Part 1
 interface DirectorInterface {
     workFromHome(): string;
     getCoffeeBreak(): string;
@@ -42,6 +43,25 @@ function createEmployee(salary: number | string): Director | Teacher {
     return new Director();
 }
 
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
+//console.log(createEmployee(200));
+//console.log(createEmployee(1000));
+//console.log(createEmployee('$500'));
+
+// 6. Creating functions specific to employees
+
+function isDirector(employee: Teacher | Director): employee is Director {
+    return employee instanceof Director;
+}
+
+
+function executeWork(employee: Teacher | Director): void {
+    if (isDirector(employee)) {
+        console.log(employee.workDirectorTasks());
+    } else {
+        console.log(employee.workTeacherTasks());
+    }
+}
+
+
+//executeWork(createEmployee(200));
+//executeWork(createEmployee(1000));
