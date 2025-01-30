@@ -62,7 +62,5 @@ function executeWork(employee: Teacher | Director): void {
         console.log(employee.workTeacherTasks());
     }
 }
-
-
 //executeWork(createEmployee(200));
 //executeWork(createEmployee(1000));
